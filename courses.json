@@ -1,0 +1,27 @@
+[
+	{
+		"id":1,
+		"name":"python",
+		"fee":5000
+	},
+	{
+		"id":1,
+		"name":"java",
+		"fee":5000
+	},
+	{
+		"id":1,
+		"name":"wordpress",
+		"fee":5000
+	},
+	{
+		"id":1,
+		"name":"laravel",
+		"fee":5000
+	},
+	{
+		"id":1,
+		"name":"graphics",
+		"fee":5000
+	}
+]
