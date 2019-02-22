@@ -19,10 +19,7 @@ def askStudentInfo():
 				print("course is found")
 				break
 				 # course found
-		
-		print("is in else")
 		if course_found :
-			print("inside coursefound condition")
 			student = Student().askDetail(course_info)
 			print(student.saveToFile())
 			# save student to json
@@ -36,14 +33,33 @@ time.sleep(2)
 # this clear the screen
 os.system("clear")
 
-student_identifier = input("Student Name or id : ")
+student_identifier = input("Student Name : ")
 #check this is the existing student or not
 # let say we will save the student record in the student.json file
 try:
-	# with open("student.json", "r") as fp:
-	# 	student_record = fp.read()	
-	askStudentInfo()
+	with open("student.json", "r") as fp:
+		student_record = fp.read()	
+		if student_record :
+			i = 0
+			student_list = json.loads(student_record)
+			student_found = False
+			for i in range(len(student_list)):
+				stu = student_list[i]
+				if stu['name'].lower() == student_identifier.lower():
+					student_found = True
+					break
+			if not student_found:
+				print("New student/ Welcome to our instititute")
+				askStudentInfo()
+			else:
+				print("you have paid {} ".format(student_list[i]['fee']))
+
+		else:
+			print("student record not found")
+			askStudentInfo()
+
 except:
+	print("New student \n")
 	askStudentInfo()
 
 
